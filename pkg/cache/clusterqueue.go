@@ -131,6 +131,7 @@ func (c *ClusterQueue) Active() bool {
 var defaultPreemption = kueue.ClusterQueuePreemption{
 	ReclaimWithinCohort: kueue.PreemptionPolicyNever,
 	WithinClusterQueue:  kueue.PreemptionPolicyNever,
+	FlavorFungibility:   kueue.FlavorFungibility{WhenCanBorrow: kueue.Borrow, WhenCanPreempt: kueue.TryNextFlavor},
 }
 
 func (c *ClusterQueue) update(in *kueue.ClusterQueue, resourceFlavors map[kueue.ResourceFlavorReference]*kueue.ResourceFlavor) error {
