@@ -11,7 +11,6 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	"k8s.io/utils/ptr"
 
-	"sigs.k8s.io/kueue/apis/kueue/v1beta1"
 	kueue "sigs.k8s.io/kueue/apis/kueue/v1beta1"
 	"sigs.k8s.io/kueue/pkg/metrics"
 	"sigs.k8s.io/kueue/pkg/workload"
@@ -34,7 +33,6 @@ type ClusterQueue struct {
 	NamespaceSelector labels.Selector
 	Preemption        kueue.ClusterQueuePreemption
 	Status            metrics.ClusterQueueStatus
-	FlavorFungibility v1beta1.FlavorFungibility
 
 	// The following fields are not populated in a snapshot.
 
