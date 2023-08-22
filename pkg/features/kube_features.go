@@ -33,6 +33,13 @@ const (
 	//
 	// Enables partial admission.
 	PartialAdmission featuregate.Feature = "PartialAdmission"
+
+	// owner: @KunWuLuan
+	// kep: https://github.com/kubernetes-sigs/kueue/tree/main/keps/582-preempt-based-on-flavor-order
+	// alpha: v0.6
+	//
+	// Enables partial admission.
+	FlavorFungibility featuregate.Feature = "FlavorFungibility"
 )
 
 func init() {
@@ -46,7 +53,8 @@ func init() {
 // Entries are separated from each other with blank lines to avoid sweeping gofmt changes
 // when adding or removing one entry.
 var defaultFeatureGates = map[featuregate.Feature]featuregate.FeatureSpec{
-	PartialAdmission: {Default: false, PreRelease: featuregate.Alpha},
+	PartialAdmission:  {Default: false, PreRelease: featuregate.Alpha},
+	FlavorFungibility: {Default: false, PreRelease: featuregate.Alpha},
 }
 
 func SetFeatureGateDuringTest(tb testing.TB, f featuregate.Feature, value bool) func() {
